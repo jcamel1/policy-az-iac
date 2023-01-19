@@ -1,0 +1,37 @@
+{
+ "properties": {
+  "displayName": "Ensure https traffic only for storage account",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Ensure https traffic only for storage account",
+  "metadata": {
+   "createdBy": "73a25ce6-2fe0-492b-9f54-29a51f873a33",
+   "createdOn": "2020-02-13T20:48:42.6841864Z",
+   "updatedBy": "27cf1629-57e0-4b16-9e7f-cd78a5f67e49",
+   "updatedOn": "2022-08-19T20:02:32.6237343Z"
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Storage/storageAccounts"
+     },
+     {
+      "not": {
+       "field": "Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly",
+       "equals": "true"
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "audit"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementgroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/https-traffic-only",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "https-traffic-only"
+}

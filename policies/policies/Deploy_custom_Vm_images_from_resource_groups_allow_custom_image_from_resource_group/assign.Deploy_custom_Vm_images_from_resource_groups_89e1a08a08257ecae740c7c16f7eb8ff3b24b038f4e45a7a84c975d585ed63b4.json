@@ -1,0 +1,31 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "Deploy custom Vm images from resource groups",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementgroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/allow custom image from resource group",
+  "scope": "/subscriptions/3b3e38f0-7199-4a81-b97a-db353322b311",
+  "notScopes": [],
+  "parameters": {
+   "resourceGroupName": {
+    "value": "bdb-st-rg-imagenes"
+   }
+  },
+  "description": "",
+  "metadata": {
+   "parameterScopes": {
+    "resourceGroupName": "/subscriptions/3b3e38f0-7199-4a81-b97a-db353322b311"
+   },
+   "createdBy": "09cc46da-7976-4811-a755-91e93491ae25",
+   "createdOn": "2020-02-18T23:42:09.5089502Z",
+   "updatedBy": "8545460e-9eee-43aa-925e-f65b95e56e52",
+   "updatedOn": "2021-04-21T15:28:06.1130275Z"
+  },
+  "enforcementMode": "DoNotEnforce"
+ },
+ "id": "/subscriptions/3b3e38f0-7199-4a81-b97a-db353322b311/providers/Microsoft.Authorization/policyAssignments/89e1a08a08257ecae740c7c16f7eb8ff3b24b038f4e45a7a84c975d585ed63b4",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "89e1a08a08257ecae740c7c16f7eb8ff3b24b038f4e45a7a84c975d585ed63b4"
+}

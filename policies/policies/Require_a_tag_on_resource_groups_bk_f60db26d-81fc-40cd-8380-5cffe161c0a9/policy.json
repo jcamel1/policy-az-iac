@@ -1,0 +1,44 @@
+{
+ "properties": {
+  "displayName": "Require a tag on resource groups bk",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "Enforces existence of a tag on resource groups.",
+  "metadata": {
+   "category": "Tags",
+   "createdBy": "66ba08cc-4be7-4d2f-9d3a-292dc3d0ce1d",
+   "createdOn": "2022-02-01T16:42:31.2569324Z",
+   "updatedBy": "66ba08cc-4be7-4d2f-9d3a-292dc3d0ce1d",
+   "updatedOn": "2022-02-02T21:14:07.156987Z"
+  },
+  "parameters": {
+   "tagName": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name",
+     "description": "Name of the tag, such as 'environment'"
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "[concat('tags[', parameters('tagName'), ']')]",
+      "exists": "false"
+     },
+     {
+      "field": "name",
+      "notLike": "AzureBackup_*"
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/subscriptions/f0990147-3069-4aaa-83ad-8fd306e59f96/providers/Microsoft.Authorization/policyDefinitions/f60db26d-81fc-40cd-8380-5cffe161c0a9",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "f60db26d-81fc-40cd-8380-5cffe161c0a9"
+}

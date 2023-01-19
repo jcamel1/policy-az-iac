@@ -1,0 +1,279 @@
+{
+ "properties": {
+  "displayName": "Add tag to data migration proyect",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "metadata": {
+   "category": "Tags",
+   "createdBy": "27cf1629-57e0-4b16-9e7f-cd78a5f67e49",
+   "createdOn": "2022-09-28T15:46:34.7597699Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "tagApplication-Project-Name": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name Application-Project-Name",
+     "description": "Name of the tag, such as 'environment'"
+    },
+    "defaultValue": "Application-Project-Name"
+   },
+   "tagValueApplication-Project-Name": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Value Application-Project-Name",
+     "description": "Name of the tag, such as 'environment'"
+    }
+   },
+   "tagCost-Center": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name Cost-Center",
+     "description": "Name of the tag, such as 'environment'"
+    },
+    "defaultValue": "Cost-Center"
+   },
+   "tagValueCost-Center": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Value Cost-Center",
+     "description": "Name of the tag, such as 'environment'"
+    }
+   },
+   "tagCriticality": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name Criticality",
+     "description": "Name of the tag, such as 'environment'"
+    },
+    "defaultValue": "Criticality"
+   },
+   "tagValueCriticality": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Value Criticality",
+     "description": "Name of the tag, such as 'environment'"
+    }
+   },
+   "tagDepartament-Manager": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name Departament-Manager",
+     "description": "Name of the tag, such as 'environment'"
+    },
+    "defaultValue": "Departament-Manager"
+   },
+   "tagValueDepartament-Manager": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Value Departament-Manager",
+     "description": "Name of the tag, such as 'environment'"
+    }
+   },
+   "tagEnvironment": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name Environment",
+     "description": "Name of the tag, such as 'environment'"
+    },
+    "defaultValue": "Environment"
+   },
+   "tagValueEnvironment": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Value Environment",
+     "description": "Name of the tag, such as 'environment'"
+    }
+   },
+   "tagFunctional-Contact": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name Functional-Contact",
+     "description": "Name of the tag, such as 'environment'"
+    },
+    "defaultValue": "Functional-Contact"
+   },
+   "tagValueFunctional-Contact": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Value Functional-Contact",
+     "description": "Name of the tag, such as 'environment'"
+    }
+   },
+   "tagRegion": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name Region",
+     "description": "Name of the tag, such as 'environment'"
+    },
+    "defaultValue": "Region"
+   },
+   "tagValueRegion": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Value Region",
+     "description": "Name of the tag, such as 'environment'"
+    }
+   },
+   "tagShared": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name Shared",
+     "description": "Name of the tag, such as 'environment'"
+    },
+    "defaultValue": "Shared"
+   },
+   "tagValueShared": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Value Shared",
+     "description": "Name of the tag, such as 'environment'"
+    }
+   },
+   "tagTechnical-Contact": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name Technical-Contact",
+     "description": "Name of the tag, such as 'environment'"
+    },
+    "defaultValue": "Technical-Contact"
+   },
+   "tagValueTechnical-Contact": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Value Technical-Contact",
+     "description": "Name of the tag, such as 'environment'"
+    }
+   },
+   "tagData-Classification": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name Data-Classification",
+     "description": "Name of the tag, such as 'environment'"
+    },
+    "defaultValue": "Data-Classification"
+   },
+   "tagValueData-Classification": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Value Data-Classification",
+     "description": "Value of the tag, such as 'environment'"
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.DataMigration/services/projects"
+     },
+     {
+      "field": "[concat('tags[', parameters('tagApplication-Project-Name'), ']')]",
+      "exists": "false"
+     },
+     {
+      "field": "[concat('tags[', parameters('tagCost-Center'), ']')]",
+      "exists": "false"
+     },
+     {
+      "field": "[concat('tags[', parameters('tagCriticality'), ']')]",
+      "exists": "false"
+     },
+     {
+      "field": "[concat('tags[', parameters('tagDepartament-Manager'), ']')]",
+      "exists": "false"
+     },
+     {
+      "field": "[concat('tags[', parameters('tagEnvironment'), ']')]",
+      "exists": "false"
+     },
+     {
+      "field": "[concat('tags[', parameters('tagFunctional-Contact'), ']')]",
+      "exists": "false"
+     },
+     {
+      "field": "[concat('tags[', parameters('tagRegion'), ']')]",
+      "exists": "false"
+     },
+     {
+      "field": "[concat('tags[', parameters('tagShared'), ']')]",
+      "exists": "false"
+     },
+     {
+      "field": "[concat('tags[', parameters('tagTechnical-Contact'), ']')]",
+      "exists": "false"
+     },
+     {
+      "field": "[concat('tags[', parameters('tagData-Classification'), ']')]",
+      "exists": "false"
+     }
+    ]
+   },
+   "then": {
+    "effect": "modify",
+    "details": {
+     "roleDefinitionIds": [
+      "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+     ],
+     "operations": [
+      {
+       "operation": "add",
+       "field": "[concat('tags[', parameters('tagApplication-Project-Name'), ']')]",
+       "value": "[parameters('tagValueApplication-Project-Name')]"
+      },
+      {
+       "operation": "add",
+       "field": "[concat('tags[', parameters('tagCost-Center'), ']')]",
+       "value": "[parameters('tagValueCost-Center')]"
+      },
+      {
+       "operation": "add",
+       "field": "[concat('tags[', parameters('tagCriticality'), ']')]",
+       "value": "[parameters('tagValueCriticality')]"
+      },
+      {
+       "operation": "add",
+       "field": "[concat('tags[', parameters('tagDepartament-Manager'), ']')]",
+       "value": "[parameters('tagValueDepartament-Manager')]"
+      },
+      {
+       "operation": "add",
+       "field": "[concat('tags[', parameters('tagEnvironment'), ']')]",
+       "value": "[parameters('tagValueEnvironment')]"
+      },
+      {
+       "operation": "add",
+       "field": "[concat('tags[', parameters('tagFunctional-Contact'), ']')]",
+       "value": "[parameters('tagValueFunctional-Contact')]"
+      },
+      {
+       "operation": "add",
+       "field": "[concat('tags[', parameters('tagRegion'), ']')]",
+       "value": "[parameters('tagValueRegion')]"
+      },
+      {
+       "operation": "add",
+       "field": "[concat('tags[', parameters('tagShared'), ']')]",
+       "value": "[parameters('tagValueShared')]"
+      },
+      {
+       "operation": "add",
+       "field": "[concat('tags[', parameters('tagTechnical-Contact'), ']')]",
+       "value": "[parameters('tagValueTechnical-Contact')]"
+      },
+      {
+       "operation": "add",
+       "field": "[concat('tags[', parameters('tagData-Classification'), ']')]",
+       "value": "[parameters('tagValueData-Classification')]"
+      }
+     ]
+    }
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/9cc28ef1-43d8-4848-ac62-976a589b9549",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "9cc28ef1-43d8-4848-ac62-976a589b9549"
+}

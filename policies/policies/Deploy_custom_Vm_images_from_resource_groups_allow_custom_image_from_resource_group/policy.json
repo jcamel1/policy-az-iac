@@ -1,0 +1,45 @@
+{
+ "properties": {
+  "displayName": "Deploy custom Vm images from resource groups",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "This policy allows custom images from 1 resource group",
+  "metadata": {
+   "createdBy": "73a25ce6-2fe0-492b-9f54-29a51f873a33",
+   "createdOn": "2020-02-13T20:48:51.0054291Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "resourceGroupName": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Resource Group Name",
+     "strongType": "ExistingResourceGroups"
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Compute/virtualMachines"
+     },
+     {
+      "not": {
+       "field": "Microsoft.Compute/imageId",
+       "contains": "[concat('resourceGroups/',parameters('resourceGroupName'))]"
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementgroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/allow custom image from resource group",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "allow custom image from resource group"
+}

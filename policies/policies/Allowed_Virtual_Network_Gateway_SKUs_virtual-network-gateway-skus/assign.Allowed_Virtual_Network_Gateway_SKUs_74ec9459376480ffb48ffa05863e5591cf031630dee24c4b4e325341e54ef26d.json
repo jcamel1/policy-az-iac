@@ -1,0 +1,34 @@
+{
+ "sku": {
+  "name": "A1",
+  "tier": "Standard"
+ },
+ "properties": {
+  "displayName": "Allowed Virtual Network Gateway SKUs",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementgroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/virtual-network-gateway-skus",
+  "scope": "/subscriptions/f0990147-3069-4aaa-83ad-8fd306e59f96",
+  "notScopes": [],
+  "parameters": {
+   "listOfAllowedSKUs": {
+    "value": [
+     "Standard",
+     "Premium"
+    ]
+   },
+   "gatewayType": {
+    "value": "ExpressRoute"
+   }
+  },
+  "description": "",
+  "metadata": {
+   "createdBy": "5d290407-1c0f-4121-9b54-eb7c11b6edf8",
+   "createdOn": "2020-02-19T22:25:57.8518536Z",
+   "updatedBy": "30db9e5a-35b6-486e-b32e-856a7f9c4fcc",
+   "updatedOn": "2020-03-12T22:52:18.6317066Z"
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/subscriptions/f0990147-3069-4aaa-83ad-8fd306e59f96/providers/Microsoft.Authorization/policyAssignments/74ec9459376480ffb48ffa05863e5591cf031630dee24c4b4e325341e54ef26d",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "74ec9459376480ffb48ffa05863e5591cf031630dee24c4b4e325341e54ef26d"
+}

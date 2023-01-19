@@ -1,0 +1,45 @@
+{
+ "properties": {
+  "displayName": "Use approved vNet for VM network interfaces",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "This policy enforces VM network interfaces to use vNet.",
+  "metadata": {
+   "createdBy": "73a25ce6-2fe0-492b-9f54-29a51f873a33",
+   "createdOn": "2020-02-13T20:48:48.3026917Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "vNetId": {
+    "type": "String",
+    "metadata": {
+     "description": "Resource Id for the vNet",
+     "displayName": "vNet Id"
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Network/networkInterfaces"
+     },
+     {
+      "not": {
+       "field": "Microsoft.Network/networkInterfaces/ipconfigurations[*].subnet.id",
+       "like": "[concat(parameters('vNetId'),'*')]"
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementgroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/vm-creation-in-approved-vnet",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "vm-creation-in-approved-vnet"
+}

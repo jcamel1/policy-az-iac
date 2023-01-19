@@ -1,0 +1,54 @@
+{
+ "properties": {
+  "displayName": "Block VM without availability set or availability zone",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Pólitica para forzar a que las VM tengan un availability set asociado para tener redundancia de las máquinas.",
+  "metadata": {
+   "category": "Compute",
+   "createdBy": "27cf1629-57e0-4b16-9e7f-cd78a5f67e49",
+   "createdOn": "2022-11-04T13:39:08.3382464Z",
+   "updatedBy": "27cf1629-57e0-4b16-9e7f-cd78a5f67e49",
+   "updatedOn": "2022-11-15T19:16:11.7524378Z"
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Audit",
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Compute/VirtualMachines"
+     },
+     {
+      "field": "Microsoft.Compute/virtualMachines/availabilitySet",
+      "exists": "false"
+     },
+     {
+      "field": "Microsoft.Compute/virtualMachines/zones",
+      "exists": "false"
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/29c3f18d-6a03-48b7-af24-11c567382641",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "29c3f18d-6a03-48b7-af24-11c567382641"
+}

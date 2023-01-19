@@ -1,0 +1,54 @@
+{
+ "properties": {
+  "displayName": "Storage Account - Read Access Logs and Metrics AUDIT",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "This Azure Policy creates an audit event when the 'Allow read access to storage logging from any network' and 'Allow read access to storage metrics from any network' settings are 'Enabled'. ",
+  "metadata": {
+   "version": "1.0.0",
+   "category": "Storage",
+   "createdBy": "27cf1629-57e0-4b16-9e7f-cd78a5f67e49",
+   "createdOn": "2022-09-16T16:55:04.5542762Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "policyEffect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Policy Effect",
+     "description": "The Policy Effect associated with this Policy Definition"
+    },
+    "defaultValue": "Audit"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Storage/storageAccounts"
+     },
+     {
+      "anyOf": [
+       {
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.bypass",
+        "contains": "Logging"
+       },
+       {
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.bypass",
+        "contains": "Metrics"
+       }
+      ]
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('policyEffect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/372aa4fc-38c6-4a58-aad0-9c904e616384",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "372aa4fc-38c6-4a58-aad0-9c904e616384"
+}

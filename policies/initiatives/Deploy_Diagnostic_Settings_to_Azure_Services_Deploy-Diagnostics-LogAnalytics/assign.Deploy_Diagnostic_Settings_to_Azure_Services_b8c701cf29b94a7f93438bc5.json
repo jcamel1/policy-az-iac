@@ -1,0 +1,54 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "identity": {
+  "principalId": "6128f559-fa15-4f52-9acb-3563c836fb36",
+  "tenantId": "daa4d0ab-0563-4108-9916-441c45c84ae9",
+  "type": "SystemAssigned"
+ },
+ "properties": {
+  "displayName": "Deploy Diagnostic Settings to Azure Services",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policySetDefinitions/Deploy-Diagnostics-LogAnalytics",
+  "scope": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7",
+  "notScopes": [
+   "/subscriptions/710c21aa-d3d4-4c0c-b5f2-80e7fe32cf5a",
+   "/subscriptions/37b82a8d-a895-4636-bb94-719fba66bdc3",
+   "/subscriptions/3b3e38f0-7199-4a81-b97a-db353322b311",
+   "/subscriptions/7f194aa7-2996-4541-bf26-e3d9ca493af8",
+   "/subscriptions/51773c2a-04b8-4091-b6de-7d7b2f979075",
+   "/subscriptions/f1f6d0f4-fd4e-4ced-82b4-6e8b8cb0e454",
+   "/subscriptions/1523c573-54ba-4800-9679-d762fa7bcf77",
+   "/subscriptions/cc4d1b18-3afa-42f1-b007-12296a8e3c40",
+   "/subscriptions/95b44e5f-addb-471a-bde1-bf6429df5bc7",
+   "/subscriptions/3a96f37b-4a81-416a-b141-8d2f3fdd2b8f",
+   "/subscriptions/55c0b4d5-9896-481b-aac1-f4807ec70df0",
+   "/subscriptions/65be6098-a1e3-4f7b-93b1-a14c3c8a3154",
+   "/subscriptions/7e3883fa-25a9-4882-b0a3-b51eb33f2c43",
+   "/subscriptions/ca7a4ed2-c8a0-4559-9bab-6a93f499a6ae",
+   "/subscriptions/3396ee42-9927-49bb-b1fd-4b1a1bb71bed",
+   "/subscriptions/f68d69af-b7c4-4889-b87f-ec145cd4c55f"
+  ],
+  "parameters": {
+   "logAnalytics": {
+    "value": "/subscriptions/f0990147-3069-4aaa-83ad-8fd306e59f96/resourcegroups/bdb-pr-rg-monitoreo/providers/microsoft.operationalinsights/workspaces/bdb-pr1-law-monitoreo"
+   }
+  },
+  "metadata": {
+   "assignedBy": "Javier Camilo Camelo Pinzon",
+   "parameterScopes": {
+    "logAnalytics": "/subscriptions/f0990147-3069-4aaa-83ad-8fd306e59f96/resourcegroups/bdb-pr-rg-monitoreo"
+   },
+   "createdBy": "27cf1629-57e0-4b16-9e7f-cd78a5f67e49",
+   "createdOn": "2022-11-15T20:52:41.7594731Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyAssignments/b8c701cf29b94a7f93438bc5",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "b8c701cf29b94a7f93438bc5",
+ "location": "eastus"
+}

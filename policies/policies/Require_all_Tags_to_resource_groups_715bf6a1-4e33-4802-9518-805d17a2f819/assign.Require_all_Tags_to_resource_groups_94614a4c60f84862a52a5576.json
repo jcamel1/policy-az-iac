@@ -1,0 +1,28 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "Require all Tags to resource groups",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/715bf6a1-4e33-4802-9518-805d17a2f819",
+  "scope": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7",
+  "notScopes": [
+   "/subscriptions/37b82a8d-a895-4636-bb94-719fba66bdc3/resourceGroups/BDB-SB-RG-SS-VM"
+  ],
+  "parameters": {},
+  "description": "",
+  "metadata": {
+   "assignedBy": "Javier Camilo Camelo Pinzon",
+   "parameterScopes": {},
+   "createdBy": "27cf1629-57e0-4b16-9e7f-cd78a5f67e49",
+   "createdOn": "2022-10-19T20:07:41.6536222Z",
+   "updatedBy": "27cf1629-57e0-4b16-9e7f-cd78a5f67e49",
+   "updatedOn": "2022-10-20T21:42:59.5034908Z"
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyAssignments/94614a4c60f84862a52a5576",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "94614a4c60f84862a52a5576"
+}

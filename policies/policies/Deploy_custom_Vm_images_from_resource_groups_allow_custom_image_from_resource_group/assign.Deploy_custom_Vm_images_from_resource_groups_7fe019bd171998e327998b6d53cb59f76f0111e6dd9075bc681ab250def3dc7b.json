@@ -1,0 +1,36 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "Deploy custom Vm images from resource groups",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementgroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/allow custom image from resource group",
+  "scope": "/subscriptions/f0990147-3069-4aaa-83ad-8fd306e59f96",
+  "notScopes": [
+   "/subscriptions/f0990147-3069-4aaa-83ad-8fd306e59f96/resourceGroups/BdB-PR-RG-QFLOW-BD",
+   "/subscriptions/f0990147-3069-4aaa-83ad-8fd306e59f96/resourceGroups/BdB-PR-RG-QFLOW-APP",
+   "/subscriptions/f0990147-3069-4aaa-83ad-8fd306e59f96/resourceGroups/BdB-PR-RG-QFLOW-APP-SNAPSHOT",
+   "/subscriptions/f0990147-3069-4aaa-83ad-8fd306e59f96/resourceGroups/BdB-PR-RG-PoCBots"
+  ],
+  "parameters": {
+   "resourceGroupName": {
+    "value": "bdb-pr-rg-imagenes"
+   }
+  },
+  "description": "",
+  "metadata": {
+   "parameterScopes": {
+    "resourceGroupName": "/subscriptions/f0990147-3069-4aaa-83ad-8fd306e59f96"
+   },
+   "createdBy": "30db9e5a-35b6-486e-b32e-856a7f9c4fcc",
+   "createdOn": "2020-02-19T23:15:10.9672556Z",
+   "updatedBy": "27cf1629-57e0-4b16-9e7f-cd78a5f67e49",
+   "updatedOn": "2022-10-03T15:21:36.4377941Z"
+  },
+  "enforcementMode": "DoNotEnforce"
+ },
+ "id": "/subscriptions/f0990147-3069-4aaa-83ad-8fd306e59f96/providers/Microsoft.Authorization/policyAssignments/7fe019bd171998e327998b6d53cb59f76f0111e6dd9075bc681ab250def3dc7b",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "7fe019bd171998e327998b6d53cb59f76f0111e6dd9075bc681ab250def3dc7b"
+}

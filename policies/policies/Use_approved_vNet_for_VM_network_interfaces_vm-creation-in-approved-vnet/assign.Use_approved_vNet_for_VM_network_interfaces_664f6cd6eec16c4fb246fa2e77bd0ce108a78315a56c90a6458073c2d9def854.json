@@ -1,0 +1,32 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "Use approved vNet for VM network interfaces",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementgroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/vm-creation-in-approved-vnet",
+  "scope": "/subscriptions/3b3e38f0-7199-4a81-b97a-db353322b311",
+  "notScopes": [
+   "/subscriptions/3b3e38f0-7199-4a81-b97a-db353322b311/resourceGroups/BDB-PR-DR-RG-REDES",
+   "/subscriptions/3b3e38f0-7199-4a81-b97a-db353322b311/resourceGroups/BDB-PR-DR-RG-UVIRTUAL"
+  ],
+  "parameters": {
+   "vNetId": {
+    "value": "/subscriptions/3b3e38f0-7199-4a81-b97a-db353322b311/resourceGroups/BdB-ST-RG-REDES/providers/Microsoft.Network/virtualNetworks/BdB-ST-VNET-OSE"
+   }
+  },
+  "description": "",
+  "metadata": {
+   "parameterScopes": {},
+   "createdBy": "09cc46da-7976-4811-a755-91e93491ae25",
+   "createdOn": "2020-02-18T23:41:49.599669Z",
+   "updatedBy": "8545460e-9eee-43aa-925e-f65b95e56e52",
+   "updatedOn": "2021-07-13T21:07:33.1442125Z"
+  },
+  "enforcementMode": "DoNotEnforce"
+ },
+ "id": "/subscriptions/3b3e38f0-7199-4a81-b97a-db353322b311/providers/Microsoft.Authorization/policyAssignments/664f6cd6eec16c4fb246fa2e77bd0ce108a78315a56c90a6458073c2d9def854",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "664f6cd6eec16c4fb246fa2e77bd0ce108a78315a56c90a6458073c2d9def854"
+}

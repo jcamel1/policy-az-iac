@@ -1,0 +1,218 @@
+name: manage-azure-policy-ea01298f
+on:
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Updating Azure Policies'
+
+
+## Uncomment the following if you wish to automatically trigger workflow run with every commit
+#
+#  push:
+#    paths:
+#      - 'policies/policies/Add_all_Tags_from_resource_group_to_resources_21b894e8-40e6-4ad0-be2d-0e3ec9fad39f/**'
+#      - 'policies/policies/Add_tag_to_data_migration_proyect_9cc28ef1-43d8-4848-ac62-976a589b9549/**'
+#      - 'policies/policies/Storage_Account_-_Access_Key_Setting_AUDIT_17640851-1298-4c79-a727-d2a74145ed40/**'
+#      - 'policies/policies/Storage_account_public_access_should_be_disallowed_f7b5a148-7fc6-4eb4-a6bd-865f5ed029c1/**'
+#      - 'policies/policies/Audit_-_Azure_Files_should_have_Soft_Delete_enabled_cfc38edc-606c-48fa-b3f0-5705ee2f9cf6/**'
+#      - 'policies/policies/Storage_accounts_should_allow_access_from_trusted_Microsoft_services_b9a664d9-b867-4a8c-adb4-0b67b40c99b3/**'
+#      - 'policies/policies/Storage_accounts_should_have_shared_access_signature_(SAS)_policies_configured_fc69daa3-f873-4f5a-b0df-6d4c7cb89042/**'
+#      - 'policies/policies/QA_-_Adds_route_with_address_prefix_0.0.0.0/0_pointing_to_the_virtual_appliance_in_case_there_is_none._feb46d41-f703-4f36-8288-657c97f1f36b/**'
+#      - 'policies/policies/Production_-_Adds_route_with_address_prefix_0.0.0.0/0_pointing_to_the_virtual_appliance_in_case_there_is_none._6da9e3d1-f9eb-4eba-9230-b6df08d4f013/**'
+#      - 'policies/policies/Azure_Backup_should_be_enabled_for_Virtual_Machines_0dac3abf-5ec1-43be-a7f4-075a0b413c99/**'
+#      - 'policies/policies/Add_tags_to_data_collection_rules_467574d3-91b2-418f-bb18-920ad0547010/**'
+#      - 'policies/policies/Required_all_tags_BdB_a4adfdd0-cda6-4df2-b0e8-f2445b03229d/**'
+#      - 'policies/policies/Require_all_Tags_to_resource_groups_715bf6a1-4e33-4802-9518-805d17a2f819/**'
+#      - 'policies/policies/Add_Tags_to_specific_resources_group_e00c5198-c423-47a1-8496-d5df3b2ea84e/**'
+#      - 'policies/policies/Storage_Account_-_Firewall_Settings_AUDIT_5b04a176-2d8f-4e26-801a-5e9c01aff062/**'
+#      - 'policies/policies/Storage_Account_-_Read_Access_Logs_and_Metrics_AUDIT_372aa4fc-38c6-4a58-aad0-9c904e616384/**'
+#      - 'policies/policies/Storage_Account_-_TLS_Setting_AUDIT_0efe9db6-3e7c-40bc-93ce-e987ceb2f6a1/**'
+#      - 'policies/policies/Audit_-_Azure_Storage_Blobs_and_Containers_should_have_Soft_Delete_enabled_cdebed96-b614-4fac-83fb-c30f016c3018/**'
+#      - 'policies/policies/Storage_account_public_access_should_be_disallowed_(block_anonymous_blob_access)_b9a664d9-b867-4a8c-adb4-0b67b40c99cd/**'
+#      - 'policies/policies/Storage_accounts_should_be_limited_by_allowed_SKUs_d011e514-df8f-4627-a77b-822c344fdcef/**'
+#      - 'policies/policies/Application_Gateway_should_be_deployed_with_WAF_enabled_fae448dc-edc3-4bd9-b87d-667fa93e732e/**'
+#      - 'policies/policies/Audit_or_Deny_the_creation_of_public_IP_9055bb43-99ef-4d44-83d3-684c85560650/**'
+#      - 'policies/policies/Add_tag_to_extensions_79bd16d3-d29e-419d-a8d3-06d37584ccea/**'
+#      - 'policies/policies/Add_tag_by_resource_type_ce2cbe78-999b-46d8-8d29-10d61799e725/**'
+#      - 'policies/policies/Block_VM_without_availability_set_or_availability_zone_29c3f18d-6a03-48b7-af24-11c567382641/**'
+#      - 'policies/policies/Require_VM_with_custom_image_3229f033-82cf-4b39-b7c2-133e9869b63e/**'
+#      - 'policies/policies/Audit_Diagnostic_setting_all_resources_6e01fa0b-f226-49f3-8a49-47fc85a1a516/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Azure_API_for_FHIR_to_Log_Analytics_workspace_Deploy-Diagnostics-ApiForFHIR/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_AVD_Workspace_to_Log_Analytics_workspace_Deploy-Diagnostics-WVDWorkspace/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_SQL_Managed_Instances_to_Log_Analytics_workspace_Deploy-Diagnostics-SQLMI/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Front_Door_to_Log_Analytics_workspace_Deploy-Diagnostics-FrontDoor/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Machine_Learning_workspace_to_Log_Analytics_workspace_Deploy-Diagnostics-MlWorkspace/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Cognitive_Services_to_Log_Analytics_workspace_Deploy-Diagnostics-CognitiveServices/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_API_Management_to_Log_Analytics_workspace_Deploy-Diagnostics-APIMgmt/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Azure_Function_App_to_Log_Analytics_workspace_Deploy-Diagnostics-Function/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Network_Security_Groups_to_Log_Analytics_workspace_Deploy-Diagnostics-NetworkSecurityGroups/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Event_Grid_Topic_to_Log_Analytics_workspace_Deploy-Diagnostics-EventGridTopic/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Analysis_Services_to_Log_Analytics_workspace_Deploy-Diagnostics-AnalysisService/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Logic_Apps_integration_service_environment_to_Log_Analytics_workspace_Deploy-Diagnostics-LogicAppsISE/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_AVD_Host_Pools_to_Log_Analytics_workspace_Deploy-Diagnostics-WVDHostPools/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Databricks_to_Log_Analytics_workspace_Deploy-Diagnostics-Databricks/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_SignalR_to_Log_Analytics_workspace_Deploy-Diagnostics-SignalR/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Data_Factory_to_Log_Analytics_workspace_Deploy-Diagnostics-DataFactory/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_CDN_Endpoint_to_Log_Analytics_workspace_Deploy-Diagnostics-CDNEndpoints/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Load_Balancer_to_Log_Analytics_workspace_Deploy-Diagnostics-LoadBalancer/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_App_Service_to_Log_Analytics_workspace_Deploy-Diagnostics-Website/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Time_Series_Insights_to_Log_Analytics_workspace_Deploy-Diagnostics-TimeSeriesInsights/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Container_Instances_to_Log_Analytics_workspace_Deploy-Diagnostics-ACI/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_MariaDB_to_Log_Analytics_workspace_Deploy-Diagnostics-MariaDB/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_AVD_Application_group_to_Log_Analytics_workspace_Deploy-Diagnostics-WVDAppGroup/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Container_Registry_to_Log_Analytics_workspace_Deploy-Diagnostics-ACR/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Automation_to_Log_Analytics_workspace_Deploy-Diagnostics-AA/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Azure_Media_Service_to_Log_Analytics_workspace_Deploy-Diagnostics-MediaService/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Virtual_Network_to_Log_Analytics_workspace_Deploy-Diagnostics-VirtualNetwork/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_SQL_Elastic_Pools_to_Log_Analytics_workspace_Deploy-Diagnostics-SQLElasticPools/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Traffic_Manager_to_Log_Analytics_workspace_Deploy-Diagnostics-TrafficManager/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Data_Lake_Analytics_to_Log_Analytics_workspace_Deploy-Diagnostics-DLAnalytics/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Application_Gateway_to_Log_Analytics_workspace_Deploy-Diagnostics-ApplicationGateway/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_App_Service_Plan_to_Log_Analytics_workspace_Deploy-Diagnostics-WebServerFarm/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Relay_to_Log_Analytics_workspace_Deploy-Diagnostics-Relay/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_HDInsight_to_Log_Analytics_workspace_Deploy-Diagnostics-HDInsight/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Virtual_Machines_to_Log_Analytics_workspace_Deploy-Diagnostics-VM/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Cosmos_DB_to_Log_Analytics_workspace_Deploy-Diagnostics-CosmosDB/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_IoT_Hub_to_Log_Analytics_workspace_Deploy-Diagnostics-iotHub/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Network_Interfaces_to_Log_Analytics_workspace_Deploy-Diagnostics-NIC/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Azure_Data_Explorer_Cluster_to_Log_Analytics_workspace_Deploy-Diagnostics-DataExplorerCluster/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Power_BI_Embedded_to_Log_Analytics_workspace_Deploy-Diagnostics-PowerBIEmbedded/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Firewall_to_Log_Analytics_workspace_Deploy-Diagnostics-Firewall/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_VPN_Gateway_to_Log_Analytics_workspace_Deploy-Diagnostics-VNetGW/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Event_Grid_subscriptions_to_Log_Analytics_workspace_Deploy-Diagnostics-EventGridSub/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_AVD_Scaling_Plans_to_Log_Analytics_workspace_Deploy-Diagnostics-AVDScalingPlans/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Database_for_PostgreSQL_to_Log_Analytics_workspace_Deploy-Diagnostics-PostgreSQL/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Event_Grid_System_Topic_to_Log_Analytics_workspace_Deploy-Diagnostics-EventGridSystemTopic/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Redis_Cache_to_Log_Analytics_workspace_Deploy-Diagnostics-RedisCache/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Database_for_MySQL_to_Log_Analytics_workspace_Deploy-Diagnostics-MySQL/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_ExpressRoute_to_Log_Analytics_workspace_Deploy-Diagnostics-ExpressRoute/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Virtual_Machine_Scale_Sets_to_Log_Analytics_workspace_Deploy-Diagnostics-VMSS/**'
+#      - 'policies/policies/Deploy_Diagnostic_Settings_for_Azure_Bastion_to_Log_Analytics_workspace_Deploy-Diagnostics-Bastion/**'
+#      - 'policies/policies/Custom_-_Deploy_Diagnostic_Settings_for_Service_Bus_to_Log_Analytics_workspace_d579a11a-49fb-4fec-91a6-5d9976744300/**'
+#      - 'policies/policies/Not_allowed_resource_types_154a483e-23bc-446c-a7d4-480479e58c29/**'
+#      - 'policies/policies/Deploy_custom_Vm_images_from_resource_groups_allow_custom_image_from_resource_group/**'
+#      - 'policies/policies/Allow_one_of_many_name_patterns_to_be_used_for_resources._allow-multiple-name-patterns/**'
+#      - 'policies/policies/Audit_SSL_Enforcement_for_Maria_DB_Audit_SSL_Enforcement_for_Maria_DB/**'
+#      - 'policies/policies/Audit_SSL_Enforcement_for_PostgreSQL_DB_Audit_SSL_Enforcement_for_PostgreSQL_DB/**'
+#      - 'policies/policies/Ensure_https_traffic_only_for_storage_account_https-traffic-only/**'
+#      - 'policies/policies/Allowed_SQL_DB_SKUs_sql-db-skus/**'
+#      - 'policies/policies/Ensure_storage_file_encryption_storage-account-file-encryption/**'
+#      - 'policies/policies/Deploy_Vm_with_Managed_disk_only_use-managed-disk-vm/**'
+#      - 'policies/policies/Allowed_Virtual_Network_Gateway_SKUs_virtual-network-gateway-skus/**'
+#      - 'policies/policies/Use_approved_vNet_for_VM_network_interfaces_vm-creation-in-approved-vnet/**'
+#      - 'policies/policies/Not_allowed_NIC_s_in_the_virtual_networks_8c609bc4-ece9-4f6a-abf2-eac91f30dbeb/**'
+#      - 'policies/policies/Require_a_tag_on_resource_groups_bk_f60db26d-81fc-40cd-8380-5cffe161c0a9/**'
+#      - 'policies/initiatives/Add_all_Tags_from_resource_group_to_resources_-_Iniciative_727403259b974ac484097c21/**'
+#      - 'policies/initiatives/Deploy_Diagnostic_Settings_to_Azure_Services_Deploy-Diagnostics-LogAnalytics/**'
+#      - .github/workflows/manage-azure-policy-ea01298f.yml
+jobs:
+  apply-azure-policy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_ea01298f}}
+        allow-no-subscriptions: true
+    - name: Create or Update Azure Policies
+      uses: azure/manage-azure-policy@v0
+      with:
+        paths: |
+          policies/policies/Add_all_Tags_from_resource_group_to_resources_21b894e8-40e6-4ad0-be2d-0e3ec9fad39f/**
+          policies/policies/Add_tag_to_data_migration_proyect_9cc28ef1-43d8-4848-ac62-976a589b9549/**
+          policies/policies/Storage_Account_-_Access_Key_Setting_AUDIT_17640851-1298-4c79-a727-d2a74145ed40/**
+          policies/policies/Storage_account_public_access_should_be_disallowed_f7b5a148-7fc6-4eb4-a6bd-865f5ed029c1/**
+          policies/policies/Audit_-_Azure_Files_should_have_Soft_Delete_enabled_cfc38edc-606c-48fa-b3f0-5705ee2f9cf6/**
+          policies/policies/Storage_accounts_should_allow_access_from_trusted_Microsoft_services_b9a664d9-b867-4a8c-adb4-0b67b40c99b3/**
+          policies/policies/Storage_accounts_should_have_shared_access_signature_(SAS)_policies_configured_fc69daa3-f873-4f5a-b0df-6d4c7cb89042/**
+          policies/policies/QA_-_Adds_route_with_address_prefix_0.0.0.0/0_pointing_to_the_virtual_appliance_in_case_there_is_none._feb46d41-f703-4f36-8288-657c97f1f36b/**
+          policies/policies/Production_-_Adds_route_with_address_prefix_0.0.0.0/0_pointing_to_the_virtual_appliance_in_case_there_is_none._6da9e3d1-f9eb-4eba-9230-b6df08d4f013/**
+          policies/policies/Azure_Backup_should_be_enabled_for_Virtual_Machines_0dac3abf-5ec1-43be-a7f4-075a0b413c99/**
+          policies/policies/Add_tags_to_data_collection_rules_467574d3-91b2-418f-bb18-920ad0547010/**
+          policies/policies/Required_all_tags_BdB_a4adfdd0-cda6-4df2-b0e8-f2445b03229d/**
+          policies/policies/Require_all_Tags_to_resource_groups_715bf6a1-4e33-4802-9518-805d17a2f819/**
+          policies/policies/Add_Tags_to_specific_resources_group_e00c5198-c423-47a1-8496-d5df3b2ea84e/**
+          policies/policies/Storage_Account_-_Firewall_Settings_AUDIT_5b04a176-2d8f-4e26-801a-5e9c01aff062/**
+          policies/policies/Storage_Account_-_Read_Access_Logs_and_Metrics_AUDIT_372aa4fc-38c6-4a58-aad0-9c904e616384/**
+          policies/policies/Storage_Account_-_TLS_Setting_AUDIT_0efe9db6-3e7c-40bc-93ce-e987ceb2f6a1/**
+          policies/policies/Audit_-_Azure_Storage_Blobs_and_Containers_should_have_Soft_Delete_enabled_cdebed96-b614-4fac-83fb-c30f016c3018/**
+          policies/policies/Storage_account_public_access_should_be_disallowed_(block_anonymous_blob_access)_b9a664d9-b867-4a8c-adb4-0b67b40c99cd/**
+          policies/policies/Storage_accounts_should_be_limited_by_allowed_SKUs_d011e514-df8f-4627-a77b-822c344fdcef/**
+          policies/policies/Application_Gateway_should_be_deployed_with_WAF_enabled_fae448dc-edc3-4bd9-b87d-667fa93e732e/**
+          policies/policies/Audit_or_Deny_the_creation_of_public_IP_9055bb43-99ef-4d44-83d3-684c85560650/**
+          policies/policies/Add_tag_to_extensions_79bd16d3-d29e-419d-a8d3-06d37584ccea/**
+          policies/policies/Add_tag_by_resource_type_ce2cbe78-999b-46d8-8d29-10d61799e725/**
+          policies/policies/Block_VM_without_availability_set_or_availability_zone_29c3f18d-6a03-48b7-af24-11c567382641/**
+          policies/policies/Require_VM_with_custom_image_3229f033-82cf-4b39-b7c2-133e9869b63e/**
+          policies/policies/Audit_Diagnostic_setting_all_resources_6e01fa0b-f226-49f3-8a49-47fc85a1a516/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Azure_API_for_FHIR_to_Log_Analytics_workspace_Deploy-Diagnostics-ApiForFHIR/**
+          policies/policies/Deploy_Diagnostic_Settings_for_AVD_Workspace_to_Log_Analytics_workspace_Deploy-Diagnostics-WVDWorkspace/**
+          policies/policies/Deploy_Diagnostic_Settings_for_SQL_Managed_Instances_to_Log_Analytics_workspace_Deploy-Diagnostics-SQLMI/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Front_Door_to_Log_Analytics_workspace_Deploy-Diagnostics-FrontDoor/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Machine_Learning_workspace_to_Log_Analytics_workspace_Deploy-Diagnostics-MlWorkspace/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Cognitive_Services_to_Log_Analytics_workspace_Deploy-Diagnostics-CognitiveServices/**
+          policies/policies/Deploy_Diagnostic_Settings_for_API_Management_to_Log_Analytics_workspace_Deploy-Diagnostics-APIMgmt/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Azure_Function_App_to_Log_Analytics_workspace_Deploy-Diagnostics-Function/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Network_Security_Groups_to_Log_Analytics_workspace_Deploy-Diagnostics-NetworkSecurityGroups/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Event_Grid_Topic_to_Log_Analytics_workspace_Deploy-Diagnostics-EventGridTopic/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Analysis_Services_to_Log_Analytics_workspace_Deploy-Diagnostics-AnalysisService/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Logic_Apps_integration_service_environment_to_Log_Analytics_workspace_Deploy-Diagnostics-LogicAppsISE/**
+          policies/policies/Deploy_Diagnostic_Settings_for_AVD_Host_Pools_to_Log_Analytics_workspace_Deploy-Diagnostics-WVDHostPools/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Databricks_to_Log_Analytics_workspace_Deploy-Diagnostics-Databricks/**
+          policies/policies/Deploy_Diagnostic_Settings_for_SignalR_to_Log_Analytics_workspace_Deploy-Diagnostics-SignalR/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Data_Factory_to_Log_Analytics_workspace_Deploy-Diagnostics-DataFactory/**
+          policies/policies/Deploy_Diagnostic_Settings_for_CDN_Endpoint_to_Log_Analytics_workspace_Deploy-Diagnostics-CDNEndpoints/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Load_Balancer_to_Log_Analytics_workspace_Deploy-Diagnostics-LoadBalancer/**
+          policies/policies/Deploy_Diagnostic_Settings_for_App_Service_to_Log_Analytics_workspace_Deploy-Diagnostics-Website/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Time_Series_Insights_to_Log_Analytics_workspace_Deploy-Diagnostics-TimeSeriesInsights/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Container_Instances_to_Log_Analytics_workspace_Deploy-Diagnostics-ACI/**
+          policies/policies/Deploy_Diagnostic_Settings_for_MariaDB_to_Log_Analytics_workspace_Deploy-Diagnostics-MariaDB/**
+          policies/policies/Deploy_Diagnostic_Settings_for_AVD_Application_group_to_Log_Analytics_workspace_Deploy-Diagnostics-WVDAppGroup/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Container_Registry_to_Log_Analytics_workspace_Deploy-Diagnostics-ACR/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Automation_to_Log_Analytics_workspace_Deploy-Diagnostics-AA/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Azure_Media_Service_to_Log_Analytics_workspace_Deploy-Diagnostics-MediaService/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Virtual_Network_to_Log_Analytics_workspace_Deploy-Diagnostics-VirtualNetwork/**
+          policies/policies/Deploy_Diagnostic_Settings_for_SQL_Elastic_Pools_to_Log_Analytics_workspace_Deploy-Diagnostics-SQLElasticPools/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Traffic_Manager_to_Log_Analytics_workspace_Deploy-Diagnostics-TrafficManager/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Data_Lake_Analytics_to_Log_Analytics_workspace_Deploy-Diagnostics-DLAnalytics/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Application_Gateway_to_Log_Analytics_workspace_Deploy-Diagnostics-ApplicationGateway/**
+          policies/policies/Deploy_Diagnostic_Settings_for_App_Service_Plan_to_Log_Analytics_workspace_Deploy-Diagnostics-WebServerFarm/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Relay_to_Log_Analytics_workspace_Deploy-Diagnostics-Relay/**
+          policies/policies/Deploy_Diagnostic_Settings_for_HDInsight_to_Log_Analytics_workspace_Deploy-Diagnostics-HDInsight/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Virtual_Machines_to_Log_Analytics_workspace_Deploy-Diagnostics-VM/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Cosmos_DB_to_Log_Analytics_workspace_Deploy-Diagnostics-CosmosDB/**
+          policies/policies/Deploy_Diagnostic_Settings_for_IoT_Hub_to_Log_Analytics_workspace_Deploy-Diagnostics-iotHub/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Network_Interfaces_to_Log_Analytics_workspace_Deploy-Diagnostics-NIC/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Azure_Data_Explorer_Cluster_to_Log_Analytics_workspace_Deploy-Diagnostics-DataExplorerCluster/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Power_BI_Embedded_to_Log_Analytics_workspace_Deploy-Diagnostics-PowerBIEmbedded/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Firewall_to_Log_Analytics_workspace_Deploy-Diagnostics-Firewall/**
+          policies/policies/Deploy_Diagnostic_Settings_for_VPN_Gateway_to_Log_Analytics_workspace_Deploy-Diagnostics-VNetGW/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Event_Grid_subscriptions_to_Log_Analytics_workspace_Deploy-Diagnostics-EventGridSub/**
+          policies/policies/Deploy_Diagnostic_Settings_for_AVD_Scaling_Plans_to_Log_Analytics_workspace_Deploy-Diagnostics-AVDScalingPlans/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Database_for_PostgreSQL_to_Log_Analytics_workspace_Deploy-Diagnostics-PostgreSQL/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Event_Grid_System_Topic_to_Log_Analytics_workspace_Deploy-Diagnostics-EventGridSystemTopic/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Redis_Cache_to_Log_Analytics_workspace_Deploy-Diagnostics-RedisCache/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Database_for_MySQL_to_Log_Analytics_workspace_Deploy-Diagnostics-MySQL/**
+          policies/policies/Deploy_Diagnostic_Settings_for_ExpressRoute_to_Log_Analytics_workspace_Deploy-Diagnostics-ExpressRoute/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Virtual_Machine_Scale_Sets_to_Log_Analytics_workspace_Deploy-Diagnostics-VMSS/**
+          policies/policies/Deploy_Diagnostic_Settings_for_Azure_Bastion_to_Log_Analytics_workspace_Deploy-Diagnostics-Bastion/**
+          policies/policies/Custom_-_Deploy_Diagnostic_Settings_for_Service_Bus_to_Log_Analytics_workspace_d579a11a-49fb-4fec-91a6-5d9976744300/**
+          policies/policies/Not_allowed_resource_types_154a483e-23bc-446c-a7d4-480479e58c29/**
+          policies/policies/Deploy_custom_Vm_images_from_resource_groups_allow_custom_image_from_resource_group/**
+          policies/policies/Allow_one_of_many_name_patterns_to_be_used_for_resources._allow-multiple-name-patterns/**
+          policies/policies/Audit_SSL_Enforcement_for_Maria_DB_Audit_SSL_Enforcement_for_Maria_DB/**
+          policies/policies/Audit_SSL_Enforcement_for_PostgreSQL_DB_Audit_SSL_Enforcement_for_PostgreSQL_DB/**
+          policies/policies/Ensure_https_traffic_only_for_storage_account_https-traffic-only/**
+          policies/policies/Allowed_SQL_DB_SKUs_sql-db-skus/**
+          policies/policies/Ensure_storage_file_encryption_storage-account-file-encryption/**
+          policies/policies/Deploy_Vm_with_Managed_disk_only_use-managed-disk-vm/**
+          policies/policies/Allowed_Virtual_Network_Gateway_SKUs_virtual-network-gateway-skus/**
+          policies/policies/Use_approved_vNet_for_VM_network_interfaces_vm-creation-in-approved-vnet/**
+          policies/policies/Not_allowed_NIC_s_in_the_virtual_networks_8c609bc4-ece9-4f6a-abf2-eac91f30dbeb/**
+          policies/policies/Require_a_tag_on_resource_groups_bk_f60db26d-81fc-40cd-8380-5cffe161c0a9/**
+          policies/initiatives/Add_all_Tags_from_resource_group_to_resources_-_Iniciative_727403259b974ac484097c21/**
+          policies/initiatives/Deploy_Diagnostic_Settings_to_Azure_Services_Deploy-Diagnostics-LogAnalytics/**
