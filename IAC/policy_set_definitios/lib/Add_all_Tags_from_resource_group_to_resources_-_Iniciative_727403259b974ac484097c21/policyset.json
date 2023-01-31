@@ -1,0 +1,121 @@
+{
+ "properties": {
+  "displayName": "Add all Tags from resource group to resources - Iniciative",
+  "policyType": "Custom",
+  "metadata": {
+   "category": "Tags",
+   "version": "1.0",
+   "createdBy": "27cf1629-57e0-4b16-9e7f-cd78a5f67e49",
+   "createdOn": "2022-10-28T15:14:42.64878Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyDefinitions": [
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group if missing_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ea3f2387-9b95-492a-a190-fcdc54f7b070",
+    "parameters": {
+     "tagName": {
+      "value": "Criticality"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group if missing_2",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ea3f2387-9b95-492a-a190-fcdc54f7b070",
+    "parameters": {
+     "tagName": {
+      "value": "Cost-Center"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group if missing_3",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ea3f2387-9b95-492a-a190-fcdc54f7b070",
+    "parameters": {
+     "tagName": {
+      "value": "Departament-Manager"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group if missing_4",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ea3f2387-9b95-492a-a190-fcdc54f7b070",
+    "parameters": {
+     "tagName": {
+      "value": "Region"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group if missing_5",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ea3f2387-9b95-492a-a190-fcdc54f7b070",
+    "parameters": {
+     "tagName": {
+      "value": "Data-Classification"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group if missing_6",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ea3f2387-9b95-492a-a190-fcdc54f7b070",
+    "parameters": {
+     "tagName": {
+      "value": "Environment"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group if missing_7",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ea3f2387-9b95-492a-a190-fcdc54f7b070",
+    "parameters": {
+     "tagName": {
+      "value": "Technical-Contact"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group if missing_8",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ea3f2387-9b95-492a-a190-fcdc54f7b070",
+    "parameters": {
+     "tagName": {
+      "value": "Functional-Contact"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group if missing_9",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ea3f2387-9b95-492a-a190-fcdc54f7b070",
+    "parameters": {
+     "tagName": {
+      "value": "Application-Project-Name"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group if missing_10",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ea3f2387-9b95-492a-a190-fcdc54f7b070",
+    "parameters": {
+     "tagName": {
+      "value": "Shared"
+     }
+    },
+    "groupNames": []
+   }
+  ],
+  "policyDefinitionGroups": []
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policySetDefinitions/727403259b974ac484097c21",
+ "type": "Microsoft.Authorization/policySetDefinitions",
+ "name": "727403259b974ac484097c21"
+}

@@ -1,0 +1,31 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "identity": {
+  "principalId": "b466733e-e310-48c9-9b87-206bd7244925",
+  "tenantId": "daa4d0ab-0563-4108-9916-441c45c84ae9",
+  "type": "SystemAssigned"
+ },
+ "properties": {
+  "displayName": "Add all Tags from resource group to resources - Iniciative",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policySetDefinitions/727403259b974ac484097c21",
+  "scope": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7",
+  "notScopes": [],
+  "parameters": {},
+  "metadata": {
+   "assignedBy": "Javier Camilo Camelo Pinzon",
+   "parameterScopes": {},
+   "createdBy": "27cf1629-57e0-4b16-9e7f-cd78a5f67e49",
+   "createdOn": "2022-10-28T15:15:24.3437508Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyAssignments/49614d534ae84c12bffa07d2",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "49614d534ae84c12bffa07d2",
+ "location": "eastus"
+}

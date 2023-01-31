@@ -1,0 +1,216 @@
+{
+ "properties": {
+  "displayName": "Add Tags to specific resources group",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Add tags to specific resources group on demand",
+  "metadata": {
+   "category": "Tags",
+   "createdBy": "27cf1629-57e0-4b16-9e7f-cd78a5f67e49",
+   "createdOn": "2022-10-20T21:07:33.3138458Z",
+   "updatedBy": "27cf1629-57e0-4b16-9e7f-cd78a5f67e49",
+   "updatedOn": "2022-10-20T21:09:16.9947572Z"
+  },
+  "parameters": {
+   "tagName1": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name1",
+     "description": "Name of the tag, such as 'environment'"
+    },
+    "defaultValue": "Application-Project-Name"
+   },
+   "tagName2": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name2",
+     "description": "Name of the tag, such as 'service'"
+    },
+    "defaultValue": "Cost-Center"
+   },
+   "tagName3": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name3",
+     "description": "Name of the tag, such as 'project'"
+    },
+    "defaultValue": "Criticality"
+   },
+   "tagName4": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name4",
+     "description": "Name of the tag, such as 'environment'"
+    },
+    "defaultValue": "Departament-Manager"
+   },
+   "tagName5": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name5",
+     "description": "Name of the tag, such as 'environment'"
+    },
+    "defaultValue": "Functional-Contact"
+   },
+   "tagName6": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name6",
+     "description": "Name of the tag, such as 'environment'"
+    },
+    "defaultValue": "Region"
+   },
+   "tagName7": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name7",
+     "description": "Name of the tag, such as 'environment'"
+    },
+    "defaultValue": "Shared"
+   },
+   "tagName8": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name8",
+     "description": "Name of the tag, such as 'environment'"
+    },
+    "defaultValue": "Technical-Contact"
+   },
+   "tagName9": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name9",
+     "description": "Name of the tag, such as 'environment'"
+    },
+    "defaultValue": "Data-Classification"
+   },
+   "tagDefaultValue": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tags Default Value",
+     "description": "Value of the tag, such as 'production'"
+    },
+    "defaultValue": "Created by policy - Modify as needed"
+   },
+   "resourceGroupName": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Resource group name",
+     "description": null
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+     },
+     {
+      "field": "name",
+      "equals": "[parameters('resourceGroupName')]"
+     },
+     {
+      "anyOf": [
+       {
+        "field": "[concat('tags[', parameters('tagName1'), ']')]",
+        "exists": "false"
+       },
+       {
+        "field": "[concat('tags[', parameters('tagName2'), ']')]",
+        "exists": "false"
+       },
+       {
+        "field": "[concat('tags[', parameters('tagName3'), ']')]",
+        "exists": "false"
+       },
+       {
+        "field": "[concat('tags[', parameters('tagName4'), ']')]",
+        "exists": "false"
+       },
+       {
+        "field": "[concat('tags[', parameters('tagName5'), ']')]",
+        "exists": "false"
+       },
+       {
+        "field": "[concat('tags[', parameters('tagName6'), ']')]",
+        "exists": "false"
+       },
+       {
+        "field": "[concat('tags[', parameters('tagName7'), ']')]",
+        "exists": "false"
+       },
+       {
+        "field": "[concat('tags[', parameters('tagName8'), ']')]",
+        "exists": "false"
+       },
+       {
+        "field": "[concat('tags[', parameters('tagName9'), ']')]",
+        "exists": "false"
+       }
+      ]
+     }
+    ]
+   },
+   "then": {
+    "effect": "modify",
+    "details": {
+     "roleDefinitionIds": [
+      "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+     ],
+     "operations": [
+      {
+       "operation": "add",
+       "field": "[concat('tags[', parameters('tagName1'), ']')]",
+       "value": "[parameters('tagDefaultValue')]"
+      },
+      {
+       "operation": "add",
+       "field": "[concat('tags[', parameters('tagName2'), ']')]",
+       "value": "[parameters('tagDefaultValue')]"
+      },
+      {
+       "operation": "add",
+       "field": "[concat('tags[', parameters('tagName3'), ']')]",
+       "value": "[parameters('tagDefaultValue')]"
+      },
+      {
+       "operation": "add",
+       "field": "[concat('tags[', parameters('tagName4'), ']')]",
+       "value": "[parameters('tagDefaultValue')]"
+      },
+      {
+       "operation": "add",
+       "field": "[concat('tags[', parameters('tagName5'), ']')]",
+       "value": "[parameters('tagDefaultValue')]"
+      },
+      {
+       "operation": "add",
+       "field": "[concat('tags[', parameters('tagName6'), ']')]",
+       "value": "[parameters('tagDefaultValue')]"
+      },
+      {
+       "operation": "add",
+       "field": "[concat('tags[', parameters('tagName7'), ']')]",
+       "value": "[parameters('tagDefaultValue')]"
+      },
+      {
+       "operation": "add",
+       "field": "[concat('tags[', parameters('tagName8'), ']')]",
+       "value": "[parameters('tagDefaultValue')]"
+      },
+      {
+       "operation": "add",
+       "field": "[concat('tags[', parameters('tagName9'), ']')]",
+       "value": "[parameters('tagDefaultValue')]"
+      }
+     ]
+    }
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/e00c5198-c423-47a1-8496-d5df3b2ea84e",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "e00c5198-c423-47a1-8496-d5df3b2ea84e"
+}

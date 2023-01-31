@@ -1,0 +1,72 @@
+{
+ "properties": {
+  "displayName": "Audit - Azure Files should have Soft Delete enabled",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "Protect your File Shares from accidental or malicious deletions by enabling Soft Delete: https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion",
+  "metadata": {
+   "version": "1.0.0-preview",
+   "category": "Storage",
+   "createdBy": "27cf1629-57e0-4b16-9e7f-cd78a5f67e49",
+   "createdOn": "2022-09-16T19:14:42.411623Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "AuditIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "AuditIfNotExists"
+   },
+   "retentionInDays": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Retention in Days",
+     "description": "How long should deleted resources be retained for."
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Storage/storageAccounts"
+     },
+     {
+      "field": "kind",
+      "notEquals": "BlobStorage"
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]",
+    "details": {
+     "type": "Microsoft.Storage/storageAccounts/fileServices",
+     "existenceCondition": {
+      "allOf": [
+       {
+        "field": "Microsoft.Storage/storageAccounts/fileServices/default.shareDeleteRetentionPolicy.enabled",
+        "equals": true
+       },
+       {
+        "field": "Microsoft.Storage/storageAccounts/fileServices/default.shareDeleteRetentionPolicy.days",
+        "equals": "[parameters('retentionInDays')]"
+       }
+      ]
+     }
+    }
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/cfc38edc-606c-48fa-b3f0-5705ee2f9cf6",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "cfc38edc-606c-48fa-b3f0-5705ee2f9cf6"
+}

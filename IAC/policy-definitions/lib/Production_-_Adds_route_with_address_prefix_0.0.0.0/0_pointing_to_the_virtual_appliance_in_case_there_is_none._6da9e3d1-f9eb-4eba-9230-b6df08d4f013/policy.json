@@ -1,0 +1,70 @@
+{
+ "properties": {
+  "displayName": "Production - Adds route with address prefix 0.0.0.0/0 pointing to the virtual appliance in case there is none.",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Adds route with address prefix 0.0.0.0/0 pointing to the virtual appliance in case there is none.",
+  "metadata": {
+   "category": "Network",
+   "createdBy": "27cf1629-57e0-4b16-9e7f-cd78a5f67e49",
+   "createdOn": "2022-09-16T20:18:48.3869479Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "routeTableSettings": {
+    "type": "Object",
+    "metadata": {
+     "displayName": "Route Table Settings",
+     "description": "Location-specific settings for route tables."
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Network/routeTables"
+     },
+     {
+      "count": {
+       "field": "Microsoft.Network/routeTables/routes[*]",
+       "where": {
+        "field": "Microsoft.Network/routeTables/routes[*].addressPrefix",
+        "equals": "0.0.0.0/0"
+       }
+      },
+      "equals": 0
+     }
+    ]
+   },
+   "then": {
+    "effect": "modify",
+    "details": {
+     "roleDefinitionIds": [
+      "/providers/microsoft.authorization/roleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7"
+     ],
+     "conflictEffect": "audit",
+     "operations": [
+      {
+       "operation": "add",
+       "field": "Microsoft.Network/routeTables/routes[*]",
+       "value": {
+        "name": "default",
+        "properties": {
+         "addressPrefix": "0.0.0.0/0",
+         "nextHopType": "VirtualAppliance",
+         "nextHopIpAddress": "[parameters('routeTableSettings')[field('location')].virtualApplianceIpAddress]"
+        }
+       }
+      }
+     ]
+    }
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/6da9e3d1-f9eb-4eba-9230-b6df08d4f013",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "6da9e3d1-f9eb-4eba-9230-b6df08d4f013"
+}

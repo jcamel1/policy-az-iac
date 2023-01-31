@@ -1,0 +1,50 @@
+{
+ "properties": {
+  "displayName": "Require VM with custom image",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Bloquea el uso de imagenes del marketplace de Azure",
+  "metadata": {
+   "category": "Compute",
+   "createdBy": "27cf1629-57e0-4b16-9e7f-cd78a5f67e49",
+   "createdOn": "2022-11-09T19:20:07.7154367Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Audit",
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Compute/VirtualMachines"
+     },
+     {
+      "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.id",
+      "exists": "false"
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/3229f033-82cf-4b39-b7c2-133e9869b63e",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "3229f033-82cf-4b39-b7c2-133e9869b63e"
+}

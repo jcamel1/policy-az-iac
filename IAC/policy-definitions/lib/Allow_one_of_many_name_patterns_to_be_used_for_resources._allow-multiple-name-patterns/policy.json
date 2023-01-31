@@ -1,0 +1,39 @@
+{
+ "properties": {
+  "displayName": "Allow one of many name patterns to be used for resources.",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Allow one of many name patterns to be used for resources.",
+  "metadata": {
+   "createdBy": "73a25ce6-2fe0-492b-9f54-29a51f873a33",
+   "createdOn": "2020-02-13T20:48:53.0159337Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "not": {
+       "field": "name",
+       "match": "contoso??????"
+      }
+     },
+     {
+      "not": {
+       "field": "name",
+       "match": "contoso-???-##"
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementgroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/allow-multiple-name-patterns",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "allow-multiple-name-patterns"
+}

@@ -1,0 +1,29 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "Use approved vNet for VM network interfaces",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementgroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/vm-creation-in-approved-vnet",
+  "scope": "/subscriptions/f0990147-3069-4aaa-83ad-8fd306e59f96",
+  "notScopes": [],
+  "parameters": {
+   "vNetId": {
+    "value": "/subscriptions/f0990147-3069-4aaa-83ad-8fd306e59f96/resourceGroups/BdB-PR-RG-REDES/providers/Microsoft.Network/virtualNetworks/BdB-PR-VNET-SERVICES"
+   }
+  },
+  "description": "",
+  "metadata": {
+   "parameterScopes": {},
+   "createdBy": "30db9e5a-35b6-486e-b32e-856a7f9c4fcc",
+   "createdOn": "2020-02-19T23:14:54.5420676Z",
+   "updatedBy": "8545460e-9eee-43aa-925e-f65b95e56e52",
+   "updatedOn": "2021-08-03T01:16:05.384794Z"
+  },
+  "enforcementMode": "DoNotEnforce"
+ },
+ "id": "/subscriptions/f0990147-3069-4aaa-83ad-8fd306e59f96/providers/Microsoft.Authorization/policyAssignments/d2aa5d232fb7f30464b3fb50fb1129791b1db302dde0529b99de6f517cac9c62",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "d2aa5d232fb7f30464b3fb50fb1129791b1db302dde0529b99de6f517cac9c62"
+}

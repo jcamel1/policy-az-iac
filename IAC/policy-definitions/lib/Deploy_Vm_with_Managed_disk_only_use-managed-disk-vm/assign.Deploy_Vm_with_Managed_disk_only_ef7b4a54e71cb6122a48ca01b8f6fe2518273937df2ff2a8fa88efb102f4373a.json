@@ -1,0 +1,25 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "Deploy Vm with Managed disk only",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementgroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/use-managed-disk-vm",
+  "scope": "/subscriptions/f0990147-3069-4aaa-83ad-8fd306e59f96",
+  "notScopes": [],
+  "parameters": {},
+  "description": "",
+  "metadata": {
+   "parameterScopes": {},
+   "createdBy": "30db9e5a-35b6-486e-b32e-856a7f9c4fcc",
+   "createdOn": "2020-02-19T23:14:42.6247223Z",
+   "updatedBy": "8545460e-9eee-43aa-925e-f65b95e56e52",
+   "updatedOn": "2021-11-04T21:02:51.4070958Z"
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/subscriptions/f0990147-3069-4aaa-83ad-8fd306e59f96/providers/Microsoft.Authorization/policyAssignments/ef7b4a54e71cb6122a48ca01b8f6fe2518273937df2ff2a8fa88efb102f4373a",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "ef7b4a54e71cb6122a48ca01b8f6fe2518273937df2ff2a8fa88efb102f4373a"
+}

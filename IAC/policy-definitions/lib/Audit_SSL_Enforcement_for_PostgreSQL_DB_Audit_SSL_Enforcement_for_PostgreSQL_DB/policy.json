@@ -1,0 +1,30 @@
+{
+ "properties": {
+  "displayName": "Audit SSL Enforcement for PostgreSQL DB",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Audit SSL Enforcement in PostgreSQL Databases",
+  "metadata": {
+   "createdBy": "8545460e-9eee-43aa-925e-f65b95e56e52",
+   "createdOn": "2020-02-18T21:51:59.3000037Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "Microsoft.DBforPostgreSQL/servers/sslEnforcement",
+      "notEquals": "Enabled"
+     }
+    ]
+   },
+   "then": {
+    "effect": "Audit"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementgroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/Audit SSL Enforcement for PostgreSQL DB",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "Audit SSL Enforcement for PostgreSQL DB"
+}

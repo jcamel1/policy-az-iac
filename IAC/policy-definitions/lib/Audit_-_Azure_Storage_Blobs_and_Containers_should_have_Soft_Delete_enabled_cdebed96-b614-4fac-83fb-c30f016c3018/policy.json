@@ -1,0 +1,91 @@
+{
+ "properties": {
+  "displayName": "Audit - Azure Storage Blobs and Containers should have Soft Delete enabled",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "Protect your Storage Blobs or Containers from accidental or malicious deletions by enabling Soft Delete: https://docs.microsoft.com/azure/storage/blobs/soft-delete-container-overview?tabs=powershell",
+  "metadata": {
+   "version": "1.0.0-preview",
+   "createdBy": "27cf1629-57e0-4b16-9e7f-cd78a5f67e49",
+   "createdOn": "2022-09-16T19:17:53.4772644Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "AuditIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "AuditIfNotExists"
+   },
+   "retentionInDays": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Retention in Days",
+     "description": "How long should deleted resources be retained for."
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "field": "type",
+    "equals": "Microsoft.Storage/storageAccounts"
+   },
+   "then": {
+    "effect": "[parameters('effect')]",
+    "details": {
+     "type": "Microsoft.Storage/storageAccounts/blobServices",
+     "existenceCondition": {
+      "anyOf": [
+       {
+        "allOf": [
+         {
+          "field": "Microsoft.Storage/storageAccounts/blobServices/default.containerDeleteRetentionPolicy.enabled",
+          "equals": true
+         },
+         {
+          "field": "Microsoft.Storage/storageAccounts/blobServices/default.containerDeleteRetentionPolicy.days",
+          "equals": "[parameters('retentionInDays')]"
+         },
+         {
+          "field": "Microsoft.Storage/storageAccounts/blobServices/default.deleteRetentionPolicy.enabled",
+          "equals": true
+         },
+         {
+          "field": "Microsoft.Storage/storageAccounts/blobServices/default.deleteRetentionPolicy.days",
+          "equals": "[parameters('retentionInDays')]"
+         }
+        ]
+       },
+       {
+        "allOf": [
+         {
+          "field": "Microsoft.Storage/storageAccounts/blobServices/default.containerDeleteRetentionPolicy.enabled",
+          "equals": true
+         },
+         {
+          "field": "Microsoft.Storage/storageAccounts/blobServices/default.containerDeleteRetentionPolicy.days",
+          "equals": "[parameters('retentionInDays')]"
+         },
+         {
+          "value": "[field('Microsoft.Storage/storageAccounts/isHnsEnabled')]",
+          "equals": true
+         }
+        ]
+       }
+      ]
+     }
+    }
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/cdebed96-b614-4fac-83fb-c30f016c3018",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "cdebed96-b614-4fac-83fb-c30f016c3018"
+}

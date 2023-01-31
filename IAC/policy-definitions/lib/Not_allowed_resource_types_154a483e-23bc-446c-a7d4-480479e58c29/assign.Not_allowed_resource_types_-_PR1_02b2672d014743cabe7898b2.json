@@ -1,0 +1,53 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "Not allowed resource types - PR1",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/154a483e-23bc-446c-a7d4-480479e58c29",
+  "scope": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7",
+  "notScopes": [
+   "/subscriptions/7832ac9b-2fbc-435d-864e-05676e22f50f",
+   "/subscriptions/710c21aa-d3d4-4c0c-b5f2-80e7fe32cf5a",
+   "/subscriptions/37b82a8d-a895-4636-bb94-719fba66bdc3",
+   "/subscriptions/3b3e38f0-7199-4a81-b97a-db353322b311",
+   "/subscriptions/7f194aa7-2996-4541-bf26-e3d9ca493af8",
+   "/subscriptions/51773c2a-04b8-4091-b6de-7d7b2f979075",
+   "/subscriptions/f1f6d0f4-fd4e-4ced-82b4-6e8b8cb0e454",
+   "/subscriptions/098f6802-19e2-4f80-9f93-b1a83cabf9a6",
+   "/subscriptions/1523c573-54ba-4800-9679-d762fa7bcf77",
+   "/subscriptions/cc4d1b18-3afa-42f1-b007-12296a8e3c40",
+   "/subscriptions/95b44e5f-addb-471a-bde1-bf6429df5bc7",
+   "/subscriptions/fd3f96a5-8a59-4059-abac-4e773a3a56ef",
+   "/subscriptions/3a96f37b-4a81-416a-b141-8d2f3fdd2b8f",
+   "/subscriptions/55c0b4d5-9896-481b-aac1-f4807ec70df0",
+   "/subscriptions/65be6098-a1e3-4f7b-93b1-a14c3c8a3154",
+   "/subscriptions/ca7a4ed2-c8a0-4559-9bab-6a93f499a6ae",
+   "/subscriptions/3396ee42-9927-49bb-b1fd-4b1a1bb71bed",
+   "/subscriptions/f68d69af-b7c4-4889-b87f-ec145cd4c55f"
+  ],
+  "parameters": {
+   "listOfResourceTypesNotAllowed": {
+    "value": [
+     "microsoft.operationalinsights/workspaces"
+    ]
+   }
+  },
+  "description": "",
+  "metadata": {
+   "assignedBy": "Javier Camilo Camelo Pinzon",
+   "parameterScopes": {
+    "listOfResourceTypesNotAllowed": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7"
+   },
+   "createdBy": "27cf1629-57e0-4b16-9e7f-cd78a5f67e49",
+   "createdOn": "2022-12-01T20:45:20.6490588Z",
+   "updatedBy": "27cf1629-57e0-4b16-9e7f-cd78a5f67e49",
+   "updatedOn": "2022-12-01T20:53:01.341811Z"
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyAssignments/02b2672d014743cabe7898b2",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "02b2672d014743cabe7898b2"
+}

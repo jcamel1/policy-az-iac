@@ -1,0 +1,58 @@
+{
+ "properties": {
+  "displayName": "Deploy Vm with Managed disk only",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "This policy enforces VM to use Managed disks",
+  "metadata": {
+   "createdBy": "73a25ce6-2fe0-492b-9f54-29a51f873a33",
+   "createdOn": "2020-02-13T20:48:49.6199092Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "policyRule": {
+   "if": {
+    "anyOf": [
+     {
+      "allOf": [
+       {
+        "field": "type",
+        "equals": "Microsoft.Compute/virtualMachines"
+       },
+       {
+        "field": "Microsoft.Compute/virtualMachines/osDisk.uri",
+        "exists": true
+       }
+      ]
+     },
+     {
+      "allOf": [
+       {
+        "field": "type",
+        "equals": "Microsoft.Compute/VirtualMachineScaleSets"
+       },
+       {
+        "anyOf": [
+         {
+          "field": "Microsoft.Compute/VirtualMachineScaleSets/osDisk.vhdContainers",
+          "exists": true
+         },
+         {
+          "field": "Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl",
+          "exists": true
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementgroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/use-managed-disk-vm",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "use-managed-disk-vm"
+}

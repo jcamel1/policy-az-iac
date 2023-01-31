@@ -1,0 +1,59 @@
+{
+ "properties": {
+  "displayName": "Not allowed resource types",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "bloqueo para crear algunos tipos de recursos",
+  "metadata": {
+   "version": "2.0.0",
+   "category": "General",
+   "createdBy": "27cf1629-57e0-4b16-9e7f-cd78a5f67e49",
+   "createdOn": "2022-12-01T20:40:11.8715337Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "listOfResourceTypesNotAllowed": {
+    "type": "Array",
+    "metadata": {
+     "displayName": "Not allowed resource types",
+     "description": "The list of resource types that cannot be deployed.",
+     "strongType": "resourceTypes"
+    }
+   },
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Audit",
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "in": "[parameters('listOfResourceTypesNotAllowed')]"
+     },
+     {
+      "value": "[field('type')]",
+      "exists": true
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/d8264cd1-427d-8885-8d47-3aa0b35c80e7/providers/Microsoft.Authorization/policyDefinitions/154a483e-23bc-446c-a7d4-480479e58c29",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "154a483e-23bc-446c-a7d4-480479e58c29"
+}
